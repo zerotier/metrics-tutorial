@@ -1,0 +1,48 @@
+services:
+  zerotier:
+    image: zerotier/zerotier:latest
+    privileged: true
+    volumes:
+      - zerotier-data:/var/lib/zerotier-one
+    networks:
+      - internal
+    devices:
+      - /dev/net/tun
+
+  prometheus:
+    image: prom/prometheus
+    command: --log.level=debug
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus-data:/prometheus
+    networks:
+      - internal
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - internal
+
+  webhost:
+    build:
+      dockerfile: ./Dockerfile.webhost
+    ports:
+      - 8080:80
+    volumes:
+      - webhost-data:/var/lib/zerotier-one
+    networks:
+      - internal
+
+volumes:
+  zerotier-data:
+  grafana-data:
+  prometheus-data:
+  webhost-data:
+
+networks:
+  internal:

@@ -1,0 +1,7 @@
+FROM debian:stable
+
+RUN apt-get update
+RUN apt-get install curl nginx -y
+RUN curl -s https://install.zerotier.com | bash
+
+CMD ["nginx", "-g", "daemon off;"]
