@@ -32,8 +32,13 @@ TODO: add screenshots for each step below
 2. Connections -> Data Sources -> New Data Source
 3. Select 'Prometheus' (first option)
 4. Set the prometheus server URL: `http://metrics-tutorial-prometheus-1:9090`
+  ![](img/data_source_1.png)
 5. Click 'Save and test'; then 'Explore view'
+  ![](img/data_source_2.png)
 6. Select 'zt_packet' in the 'Metric' dropdown, then 'Last 15 minutes' in the range picker in the upper-right. Click 'Run query' and the graph will be populated in the bottom half of the screen.
+  ![](img/metrics_explorer.png)
+7. You can also see the status of the Prometheus jobs directly: `http://localhost:9090`
+  ![](img/prom_jobs.png)
 
 ## Cleanup
 
@@ -51,5 +56,5 @@ TODO: find good Grafana setup tutorial
 
 The following metrics in particular may prove useful for general health + activity monitoring:
 
-- zt_packet (labeled by rx/tx direction, peer node ID, network ID, etc.)
-- zt_peer_path (active paths to known network peers)
+- `zt_packet` (labeled by rx/tx direction, peer node ID, network ID, etc.)
+- `zt_peer_path` (active paths to known network peers)
