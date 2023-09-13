@@ -3,5 +3,6 @@ FROM debian:stable
 RUN apt-get update
 RUN apt-get install curl nginx -y
 RUN curl -s https://install.zerotier.com | bash
+COPY ./webhost-init.sh /
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/webhost-init.sh"]

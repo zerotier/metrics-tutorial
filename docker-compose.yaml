@@ -29,6 +29,7 @@ services:
       - internal
 
   webhost:
+    privileged: true
     build:
       dockerfile: ./Dockerfile.webhost
     ports:
@@ -37,6 +38,8 @@ services:
       - webhost-data:/var/lib/zerotier-one
     networks:
       - internal
+    devices:
+      - /dev/net/tun
 
 volumes:
   zerotier-data:
