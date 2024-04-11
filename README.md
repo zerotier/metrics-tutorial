@@ -26,8 +26,6 @@ $ ./setup.sh
 
 Next, open `http://localhost:3000/` in your browser and follow the steps below to configure dashboards.
 
-TODO: add screenshots for each step below
-
 1. Login (admin/admin; set a new password or click 'skip')
 2. Connections -> Data Sources -> New Data Source
 3. Select 'Prometheus' (first option)
@@ -52,9 +50,9 @@ $ ./cleanup.sh
 
 Now that you've set up a basic pipeline, you can try creating a custom dashboard reporting ZeroTier metrics.
 
-TODO: find good Grafana setup tutorial
-
 The following metrics in particular may prove useful for general health + activity monitoring:
 
 - `zt_packet` (labeled by rx/tx direction, peer node ID, network ID, etc.)
 - `zt_peer_path` (active paths to known network peers)
+
+If you've found a cool use for this set of observability hooks, we'd love to hear about it! Please reach out via our [community forum](https://discuss.zerotier.com/), [Mastodon](https://social.zerotier.com/@zerotier), or [email](contact@zerotier.com).
